@@ -12,10 +12,5 @@ fun hasPermission(session: UserSession, permission: String): Boolean {
 }
 
 fun withAddedPermission(session: UserSession, permission: String): UserSession {
-    return UserSession(
-        id = session.id,
-        userId = session.userId,
-        createdAt = session.createdAt,
-        permissions = session.permissions.toMutableList().also { it.add(permission) }
-    )
+    return session.copy(permissions = session.permissions + permission)
 }
