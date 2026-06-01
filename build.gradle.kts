@@ -11,8 +11,13 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    testImplementation("io.kotest:kotest-runner-junit5:6.1.11")
 }
 
 tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
