@@ -7,7 +7,7 @@ import io.kotest.matchers.types.shouldNotBeSameInstanceAs
 
 class UserSessionTest : FunSpec({
     val permissions = listOf("READ")
-    val session = UserSession(
+    val session = UserSession.create(
         id = "s1",
         userId = "u1",
         createdAt = 1L,
@@ -36,7 +36,7 @@ class UserSessionTest : FunSpec({
 
     test("returnsTrueWhenPermissionExistsMultipleTimes") {
         val permissions = listOf("READ", "WRITE", "WRITE")
-        val session2 = UserSession(
+        val session2 = UserSession.create(
             id = "s1",
             userId = "u1",
             createdAt = 1L,
